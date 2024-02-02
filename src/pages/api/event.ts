@@ -52,7 +52,7 @@ export default async function Handler(
               // country: user_location?.country,
               // ct: user_location?.city,
               // st: user_location?.region,
-              // external_id: req.body.external_id,
+              external_id: req.body.external_id,
             },
           },
         ],
