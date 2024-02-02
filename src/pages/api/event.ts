@@ -10,7 +10,7 @@ interface IFacebookApiRequest extends NextApiRequest {
     event_source_url: string;
     client_user_agent: string; // navigator thingy
     external_id: string; // this is userID
-    isTest: string; // kung gusto mo makita sa events manager. lagay mo 'TESTXXXXX' replace with real testcode
+    test_event_code: string | null; // kung gusto mo makita sa events manager. lagay mo 'TESTXXXXX' replace with real testcode
   };
 }
 
@@ -57,7 +57,9 @@ export default async function Handler(
           },
         ],
         // test_event_code: req.body.isTest ? "TEST46387" : null,
-        test_event_code: req.body.isTest ? req.body.isTest : null,
+        test_event_code: req.body.test_event_code
+          ? req.body.test_event_code
+          : null,
       };
       const fbGraphAPIVersion = "v19.0";
       const fbPixelId = 759662146057719;
